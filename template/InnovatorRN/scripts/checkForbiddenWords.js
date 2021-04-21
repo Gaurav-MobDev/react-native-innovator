@@ -1,6 +1,6 @@
-const util = require('util');
-const path = require('path');
-const fs = require('fs');
+const util = require("util");
+const path = require("path");
+const fs = require("fs");
 
 const fsReaddir = util.promisify(fs.readdir);
 const fsReadFile = util.promisify(fs.readFile);
@@ -14,12 +14,12 @@ async function searchFilesInDirectoryAsync(dir, filter, ext) {
   const matches = [];
 
   for (let file of found) {
-    const fileContent = await fsReadFile(file, 'utf8');
+    const fileContent = await fsReadFile(file, "utf8");
 
     const regex = new RegExp(filter);
     if (
       regex.test(JSON.stringify(fileContent)) &&
-      file.indexOf('checkForbiddenWords.js') === -1
+      file.indexOf("checkForbiddenWords.js") === -1
     ) {
       console.error(`word reference found in file: ${file}`);
       matches.push(file);
@@ -38,7 +38,6 @@ async function getFilesInDirectoryAsync(dir, ext) {
   for (let file of filesFromDirectory) {
     const filePath = path.join(dir, file);
     const stat = await fsLstat(filePath);
-
     if (stat.isDirectory()) {
       const nestedFiles = await getFilesInDirectoryAsync(filePath, ext);
       files = files.concat(nestedFiles);
@@ -52,10 +51,10 @@ async function getFilesInDirectoryAsync(dir, ext) {
   return files;
 }
 
-searchFilesInDirectoryAsync('./', 'UNSAFE_', '.js')
+searchFilesInDirectoryAsync("./", "UNSAFE_", ".js")
   .then((filesWithForbiddenWords) => {
     const filesToCheck = filesWithForbiddenWords.filter(
-      (filepath) => filepath.indexOf('checkForbiddenWords.js') === -1,
+      (filepath) => filepath.indexOf("checkForbiddenWords.js") === -1
     );
 
     process.exit(filesToCheck.length ? 1 : 0);

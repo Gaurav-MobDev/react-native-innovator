@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
-import {View, TextInput} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Style from './style';
-import {Colors} from '../../utilities/Colors';
+import React, { PureComponent } from "react";
+import { View, TextInput } from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Style from "./style";
+import { Colors } from "../../utilities/Colors";
 
 class CTextBox extends PureComponent {
   render() {

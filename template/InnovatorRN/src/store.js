@@ -1,16 +1,17 @@
-import {createStore, applyMiddleware} from 'redux';
-import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import reducer from "./reducers";
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
-
-const sagaMiddleware = createSagaMiddleware();
-
+const isDevelopmentEnv =
+  process && process.env && process.env.NODE_ENV === "development";
+function setLogger() {
+  if (isDevelopmentEnv) {
+    return [...getDefaultMiddleware({ serializableCheck: false })];
+  }
+  return [...getDefaultMiddleware({ serializableCheck: false })];
+}
 const store = configureStore({
-  reducer: rootReducer,
-  middleware: [sagaMiddleware, ...getDefaultMiddleware()],
+  reducer,
+  middleware: setLogger,
 });
-sagaMiddleware.run(rootSaga);
 
 export default store;

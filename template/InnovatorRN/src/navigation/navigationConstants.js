@@ -1,5 +1,5 @@
 export const screenNames = {
-  SignIn: 'SignIn',
-  SignUp: 'SignUp',
-  Dashboard: 'Dashboard',
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+  Dashboard: "Dashboard",
 };

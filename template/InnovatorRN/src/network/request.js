@@ -1,6 +1,6 @@
-import Axios, {AxiosRequestConfig} from 'axios';
-import {URLS} from '../constants/urls';
-import {strings} from '../locales/i18n';
+import Axios, { AxiosRequestConfig } from "axios";
+import { URLS } from "../constants/urls";
+import { strings } from "../locales/i18n";
 
 export const axios = Axios.create({
   baseURL: URLS.API_BASE_URL,
@@ -32,7 +32,7 @@ export const request = (config: AxiosRequestConfig) =>
       throw {
         response: {
           data: {
-            message: strings('common.sessionExpired'),
+            message: strings("common.sessionExpired"),
             response: response,
           },
         },

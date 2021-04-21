@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import style from './style';
+import React, { PureComponent } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import style from "./style";
 
 class CButton extends PureComponent {
   render() {
@@ -16,7 +16,8 @@ class CButton extends PureComponent {
         <TouchableOpacity
           style={style.buttonStyle}
           onPress={onPress}
-          disabled={disabled}>
+          disabled={disabled}
+        >
           <Text style={[style.buttonTextStyle, textStyle]}>
             {text.toUpperCase()}
           </Text>

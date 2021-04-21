@@ -1,9 +1,9 @@
-import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Style from './style';
-import {goBack} from '../../navigation/NavigationService';
-import {connect} from 'react-redux';
+import React from "react";
+import { Text, View, TouchableOpacity } from "react-native";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Style from "./style";
+import { goBack } from "../../navigation/NavigationService";
+import { connect } from "react-redux";
 
 class DashBoard extends React.PureComponent {
   onCrossPress = () => {
@@ -11,7 +11,7 @@ class DashBoard extends React.PureComponent {
   };
   render() {
     const {
-      loginData: {email},
+      loginData: { email },
     } = this.props;
     return (
       <View style={Style.constainer}>

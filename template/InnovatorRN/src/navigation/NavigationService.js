@@ -1,5 +1,5 @@
-import React from 'react';
-import {StackActions} from '@react-navigation/native';
+import React from "react";
+import { StackActions } from "@react-navigation/native";
 
 const navigationRef = React.createRef();
 
@@ -19,4 +19,4 @@ const popToTop = () => navigationRef.current?.dispatch(StackActions.popToTop());
 
 const goBack = () => navigationRef.current?.goBack();
 
-export {navigationRef, navigate, replace, push, pop, popToTop, goBack};
+export { navigationRef, navigate, replace, push, pop, popToTop, goBack };
